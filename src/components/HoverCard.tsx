@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import RevealCard from "./RevealCard";
+import Image from "next/image";
 
 interface HoverCardProps {
     title: string;
@@ -41,9 +42,12 @@ const HoverCard: React.FC<HoverCardProps> = ({
 
             {/* MAIN CARD */}
             <div
-                className={`absolute inset-0 rounded-[30px] p-10 flex items-center transition-all duration-500 ease-in-out ${bgColor}
-        ${hasReveal ? (imageOnLeft ? "group-hover:-translate-x-10" : "group-hover:translate-x-10") : ""}
-        ${hasReveal ? "group-hover:opacity-0" : ""}
+                className={`
+          absolute inset-0 rounded-[30px] p-10 flex items-center
+          transition-all duration-500 ease-in-out ${bgColor}
+          ${hasReveal
+                        ? "group-hover:-translate-x-full group-hover:opacity-0"
+                        : ""}
         `}
             >
                 <div
@@ -58,10 +62,8 @@ const HoverCard: React.FC<HoverCardProps> = ({
 
                     {/* IMAGE with floating animation */}
                     {imageSrc && (
-                        <img
-                            src={imageSrc}
-                            alt="illustration"
-                            className={`absolute pointer-events-none  animate-float }`}
+                        <div
+                            className={`absolute pointer-events-none ${imageOnLeft ? "animate-float-reverse" : "animate-float"}`}
                             style={{
                                 top: imagePosition?.top ?? "50%",
                                 right: imagePosition?.right,
@@ -71,7 +73,9 @@ const HoverCard: React.FC<HoverCardProps> = ({
                                 width: imagePosition?.width ?? "auto",
                                 height: imagePosition?.height ?? "auto",
                             }}
-                        />
+                        >
+                            <Image src={imageSrc} alt="card illustration" fill className="object-contain " />
+                        </div>
                     )}
                 </div>
             </div>
@@ -81,7 +85,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
                 <div
                     className="absolute inset-0 opacity-0 translate-x-10
           group-hover:opacity-100 group-hover:translate-x-0
-          transition-all duration-500"
+          transition-all duration-1000"
                 >
                     {revealComponent}
                 </div>

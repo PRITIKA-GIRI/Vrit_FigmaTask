@@ -20,10 +20,23 @@ export const cards = [
         text: "Theory is great, but action is better. At SkillShikshya, you learn by doing. Hands-on projects and real-world scenarios help you build, break, and create—leading to true mastery.",
         hasReveal: true,
         revealComponent: <RevealCard2 />,
-        imagePosition: { top: "20%", right: "0px", height: "367px", width: "180px" }
+        imagePosition: { top: "0%", right: "0px", height: "500px", width: "180px" }
     },
 
-    { title: "Get Mentored", description: "You're not learning alone...", bgColor: "bg-[#6C64A8]", imageSrc: "Group (2).svg", text: "Stuck or need feedback? SkillShikshya’s community of mentors and learners has your back with live support, interactive discussions, and expert insights. You’re never on your own.", imagePosition: { top: "50%", left: "-60px", height: "250px", width: "307px" } },
+    {
+        title: "Get Mentored",
+        description: "You're not learning alone...",
+        bgColor: "bg-[#6C64A8]",
+        imageSrc: "Group (2).svg",
+        text: "Stuck or need feedback? SkillShikshya’s community of mentors and learners has your back with live support, interactive discussions, and expert insights. You’re never on your own.",
+        imagePosition: { top: "50%", left: "-60px", height: "250px", width: "307px" }
+    },
 
-    { title: "Achieve & Showcase", description: "Build your portfolio...", bgColor: "bg-[#A88964]", imageSrc: "Group (3).svg", text: "Your journey ends with achievement. Each completed project builds a portfolio showcasing your skills and job readiness, bringing you closer to that dream job, promotion, or your own venture.", imagePosition: { top: "35%", right: "-50px", height: "310px" }, },
+    {
+        title: "Achieve & Showcase",
+        description: "Build your portfolio...",
+        bgColor: "bg-[#A88964]",
+        imageSrc: "Group (3).svg",
+        text: "Your journey ends with achievement. Each completed project builds a portfolio showcasing your skills and job readiness, bringing you closer to that dream job, promotion, or your own venture.", imagePosition: { top: "35%", right: "0px", height: "310px", width: "300px" },
+    },
 ];

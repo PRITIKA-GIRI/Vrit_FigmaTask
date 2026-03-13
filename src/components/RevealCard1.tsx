@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const RevealCard1 = () => {
     return (
         <div className="relative rounded-[30px] bg-[#F45B5B]  flex  pl-[80px] max-w-full md:max-w-[600px] h-[341px]">
@@ -15,21 +17,27 @@ const RevealCard1 = () => {
 
                 }}
             >
-                <img src="arrow-left.svg" alt="icon" />
+                <Image src="arrow-left.svg" alt="icon" width={24} height={4} />
             </button>
-            <img
+            <Image
+                width={0}
+                height={0}
                 src={"image.svg"}
                 alt="wow sticker"
                 className="absolute   w-[88px] h-[88px] left-[67px] top-[24px] rounded-lg rotate-[11.19]"
             />
-            <img
+            <Image
+                width={0}
+                height={0}
                 src={"image (1).svg"}
                 alt="wow sticker"
                 className="absolute   w-[88px] h-[88px] left-[385px] top-[193px] rounded-lg "
-                
+
             />
 
-            <img
+            <Image
+                width={0}
+                height={0}
                 src={"image 2.svg"}
                 alt="reveal"
                 className="absolute   w-[352px] h-[323px] left-[24px] top-[18px] rounded-lg"
@@ -43,7 +51,7 @@ const RevealCard1 = () => {
 
                 }}
             >
-                <img src="Icon.svg" alt="icon" />
+                <Image src="Icon.svg" alt="icon" width={24} height={4} />
             </button>
 
 

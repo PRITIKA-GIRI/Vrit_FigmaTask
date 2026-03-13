@@ -140,8 +140,24 @@
   }
 }
 
+@keyframes float-reverse {
+
+  0%,
+  100% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 3s ease-in-out infinite;
 }
 :root {
   --font-outfit: var(--font-outfit);
