@@ -1,7 +1,16 @@
 export const cards = [
-    { title: "Start with Clarity", description: "Step into a better learning path...", bgColor: "bg-[#F45B5B]", imageSrc: "Group.svg", text: "Overwhelmed by too many learning options? SkillShikshya provides a clear, curated roadmap from the start. Whether you're a beginner or upskilling, we have a path tailored to your growth.", imagePosition: { top: "65%", left: "-60px", height: "338px" ,width:"257px"} },
+    { title: "Start with Clarity", description: "Step into a better learning path...", bgColor: "bg-[#F45B5B]", imageSrc: "Group.svg", text: "Overwhelmed by too many learning options? SkillShikshya provides a clear, curated roadmap from the start. Whether you're a beginner or upskilling, we have a path tailored to your growth.", imagePosition: { top: "65%", left: "-60px", height: "338px", width: "257px" } },
 
-    { title: "Practice by Doing", description: "Practical skills, real projects...", bgColor: "bg-[#5492A0]", imageSrc: "Group (1).svg", text: "Theory is great, but action is better. At SkillShikshya, you learn by doing. Hands-on projects and real-world scenarios help you build, break, and create—leading to true mastery.", imagePosition: { top: "74%", right: "0px", height: "367px", width: "180px" } },
+    {
+        title: "Practice by Doing", description: "Practical skills, real projects...",
+        bgColor: "bg-[#5492A0]",
+        imageSrc: "Group (1).svg",
+        text: "Theory is great, but action is better. At SkillShikshya, you learn by doing. Hands-on projects and real-world scenarios help you build, break, and create—leading to true mastery.",
+        revealImage: "Group.svg",
+        revealText: "SkillShikshya gives you a clear roadmap.",
+        hasReveal: true,
+        imagePosition: { top: "74%", right: "0px", height: "367px", width: "180px" }
+    },
 
     { title: "Get Mentored", description: "You're not learning alone...", bgColor: "bg-[#6C64A8]", imageSrc: "Group (2).svg", text: "Stuck or need feedback? SkillShikshya’s community of mentors and learners has your back with live support, interactive discussions, and expert insights. You’re never on your own.", imagePosition: { top: "80%", left: "-60px", height: "250px", width: "307px" } },
 
