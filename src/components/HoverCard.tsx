@@ -8,14 +8,25 @@ interface HoverCardProps {
     imageSrc?: string;
     number?: string;
     text?: string;
+    imagePosition?: {
+        top?: string | number;
+        right?: string | number;
+        bottom?: string | number;
+        left?: string | number;
+        translateY?: string | number; // for vertical centering
+        translateX?: string | number; // optional horizontal adjustment
+        width?: string | number;
+        height?: string | number;
+    };
 }
 
-const HoverCard: React.FC<HoverCardProps> = ({ title, description, bgColor, imageSrc, number,text }) => {
+const HoverCard: React.FC<HoverCardProps> = ({ title, description, bgColor, imageSrc, number,text,imagePosition }) => {
     const [hovered, setHovered] = useState(false);
+    const imageOnLeft = imagePosition?.left !== undefined;
 
     return (
         <div
-            className={`relative rounded-[30px] w-[592px] h-[341px]  p-6 flex items-center justify-between cursor-pointer transition-transform duration-300 ease-in-out ${bgColor} ${hovered ? "scale-105 shadow-lg" : ""}`}
+            className={`relative rounded-[30px] w-[592px] h-[341px]  p-10 flex items-center justify-between cursor-pointer transition-transform duration-300 ease-in-out ${bgColor} ${hovered ? "scale-105 shadow-lg" : ""}`}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
@@ -28,14 +39,42 @@ const HoverCard: React.FC<HoverCardProps> = ({ title, description, bgColor, imag
                 </button>
             )}
 
-            <div className="flex flex-col max-w-[60%] text-white">
-                {number && <div className="text-4xl font-bold">{number}</div>}
-                <h3 className="text-[32px] font-bold mb-[10px]">{title}</h3>
-                {description && <p className="font-medium text-[24px] mb-[32px]">{description}</p>}
-                {text && <p className="text-[18px] font-regular">{text}</p>}
-            </div>
+            <div
+                className={`flex gap-10 w-full ${imageOnLeft ? "flex-row-reverse" : "flex-row"
+                    }`}
+            >
+                {/* TEXT */}
+                <div
+                    className={`relative z-10 text-white max-w-[350px] `}
+                >
+                    <h3 className="text-[32px] font-bold mb-[10px]">{title}</h3>
 
-            {imageSrc && <img src={imageSrc} alt="illustration" className="w-40 h-auto rounded-lg select-none" />}
+                    {description && (
+                        <p className="font-medium text-[24px] mb-[32px]">{description}</p>
+                    )}
+
+                    {text && <p className={`text-[18px] ${imageOnLeft ? "text-end" : ""}`}>{text}</p>}
+                </div>
+
+                {/* IMAGE */}
+                {imageSrc && (
+                    <img
+                        src={imageSrc}
+                        alt="illustration"
+                        className="absolute pointer-events-none"
+                        style={{
+                            top: imagePosition?.top ?? "50%",
+                            right: imagePosition?.right,
+                            bottom: imagePosition?.bottom,
+                            left: imagePosition?.left,
+                            transform: `translateY(${imagePosition?.translateY ?? "-50%"}) translateX(${imagePosition?.translateX ?? "0"
+                                })`,
+                            width: imagePosition?.width ?? "auto",
+                            height: imagePosition?.height ?? "auto",
+                        }}
+                    />
+                )}
+            </div>
 
             {hovered && (
                 <button className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg">
