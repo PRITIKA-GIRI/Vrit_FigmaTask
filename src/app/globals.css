@@ -143,3 +143,10 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+:root {
+  --font-outfit: var(--font-outfit);
+}
+
+.font-outfit {
+  font-family: var(--font-outfit);
+}
