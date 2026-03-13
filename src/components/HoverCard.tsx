@@ -10,7 +10,8 @@ interface HoverCardProps {
     text?: string;
     revealImage?: string;
     revealText?: string;
-    hasReveal?: boolean; // Only first two cards will have reveal
+    hasReveal?: boolean;
+    revealComponent?: React.ReactNode
     imagePosition?: {
         top?: string | number;
         right?: string | number;
@@ -29,8 +30,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
     bgColor,
     imageSrc,
     text,
-    revealImage,
-    revealText,
+    revealComponent,
     hasReveal = false,
     imagePosition,
 }) => {
@@ -61,7 +61,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
                         <img
                             src={imageSrc}
                             alt="illustration"
-                            className={`absolute pointer-events-none ${hasReveal ? "animate-float" : ""}`}
+                            className={`absolute pointer-events-none  animate-float }`}
                             style={{
                                 top: imagePosition?.top ?? "50%",
                                 right: imagePosition?.right,
@@ -83,7 +83,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
           group-hover:opacity-100 group-hover:translate-x-0
           transition-all duration-500"
                 >
-                    <RevealCard revealImage={revealImage} revealText={revealText} />
+                    {revealComponent}
                 </div>
             )}
         </div>
