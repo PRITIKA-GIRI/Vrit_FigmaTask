@@ -159,6 +159,7 @@
 .animate-float-reverse {
   animation: float-reverse 3s ease-in-out infinite;
 }
+
 :root {
   --font-outfit: var(--font-outfit);
 }
@@ -166,6 +167,10 @@
 .font-outfit {
   font-family: var(--font-outfit);
 }
+
 .font-fustat {
   font-family: var(--font-fustat);
+}
+.font-roboto {
+  font-family: var(--font-roboto);
 }

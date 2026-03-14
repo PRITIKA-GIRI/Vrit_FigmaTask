@@ -11,11 +11,11 @@ const Task1 = () => {
       <div className="flex flex-col gap-[30px]">
         <div className="flex flex-col gap-[24px]">
           <p className="text-[24px] font-medium font-outfit">Your SkillShikshya Journey</p>
-          <p className="text-[32px] font-medium font-outfit font-bold"><span className="text-[#1DA077]"> Step</span> In. <span className="text-[#1DA077]"> Skill</span> Up. <span className="text-[#1DA077]"> Stand</span> Out. 🚀</p>
+          <p className="text-[32px] font-medium font-roboto font-bold"><span className="text-[#1DA077]"> Step</span> In. <span className="text-[#1DA077]"> Skill</span> Up. <span className="text-[#1DA077]"> Stand</span> Out. 🚀</p>
           <p></p>
         </div>
 
-        <div className="grid grid-cols-2 gap-[32px]">
+        <div className="grid grid-cols-2 gap-x-[32px] gap-y-[40px]">
           {cards.map((card, i) => (
             <HoverCard key={i} {...card} />
           ))}
