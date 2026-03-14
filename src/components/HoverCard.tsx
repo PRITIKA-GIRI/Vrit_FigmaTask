@@ -69,19 +69,19 @@ const HoverCard: React.FC<HoverCardProps> = ({
                 `}
             >
                 <div
-                    className={`relative z-10 text-white max-w-[320px] font-roboto mt-[58px]
+                    className={`relative z-10 text-white max-w-[330px] mt-[58px]
                     ${imageOnLeft
-                            ? "ml-auto pr-[35px] text-right"
-                            : "pl-[35px] text-left"
+                            ? "ml-auto mr-[35px] text-right"
+                            : "ml-[35px] text-left"
                         }
             `}
                 >
-                    <h3 className="text-[32px] font-bold mb-[10px]">{title}</h3>
+                    <h3 className="text-[32px] font-bold font-nohemi mb-[10px]">{title}</h3>
                     {description && (
-                        <p className="font-medium text-[20px] mb-[16px]">{description}</p>
+                        <p className="font-medium font-nohemi text-[20px] mb-[24px]">{description}</p>
                     )}
                     {text && (
-                        <p className="text-[15px] ">{text}</p>
+                        <p className="text-[16px] font-nohemi font-regular">{text}</p>
                     )}
                 </div>
 

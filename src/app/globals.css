@@ -174,3 +174,26 @@
 .font-roboto {
   font-family: var(--font-roboto);
 }
+@theme inline {
+  --font-nohemi: "Nohemi", sans-serif;
+}
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi/Nohemi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi/Nohemi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi/Nohemi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}

@@ -12,7 +12,7 @@ export const cards = [
         text: "Overwhelmed by too many learning options? SkillShikshya provides a clear, curated roadmap from the start. Whether you're a beginner or upskilling, we have a path tailored to your growth.",
         hasReveal: true,
         revealComponents: [RevealCard1, RevealCard2], // 2 reveals — arrow navigates between them
-        imagePosition: { top: "30px", left: "-49px" },
+        imagePosition: { top: "30px", left: "-50px" },
         textLeft: "220px",
     },
     {
