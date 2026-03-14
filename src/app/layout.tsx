@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Geist, Geist_Mono, Outfit, Fustat } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 
@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
+});
+const fustat = Fustat({
+  subsets: ["latin"],
+  variable: "--font-fustat",
 });
 
 // const nohemi = localFont({
@@ -43,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${fustat.variable}  antialiased`}
       >
         {children}
       </body>
