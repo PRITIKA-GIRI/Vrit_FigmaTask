@@ -6,7 +6,7 @@ import Link from "next/link";
 const Task1 = () => {
 
   return (
-    <div className="flex flex-col py-[60px] px-[63px] min-h-screen">
+    <div className="flex flex-col py-[60px] px-[63px] min-h-screen overflow-hidden">
       <p className="mb-[16px] text-[32px] text-center font-medium font-fustat">Note: Hover the component to view the animation & Click the arrow icon</p>
 
       <div className="flex flex-col gap-[30px]">
