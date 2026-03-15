@@ -100,8 +100,8 @@ const StatCard: React.FC<StatCardProps> = ({
                             Click me!
                         </p>
                         <Image
-                            src="/Hand-drawn Shapes.svg"
-                            alt={label}
+                            src="/Hand-drawn shapes.svg"
+                            alt="hand drawn icon"
                             width={50}
                             height={50}
 
