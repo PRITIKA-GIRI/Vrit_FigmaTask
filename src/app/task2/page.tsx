@@ -17,7 +17,7 @@ const Task2 = () => {
                     <p></p>
                 </div>
 
-                <div className="bg-green-500 h-[461px]">
+                <div >
                     <StatsSection />
                 </div>
 

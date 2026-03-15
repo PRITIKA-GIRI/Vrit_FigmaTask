@@ -33,7 +33,7 @@ const StatsSection = () => {
     return (
         <div className="flex flex-col gap-[16px] w-full">
             {/* Row of stat cards */}
-            <div className="flex gap-[32px] h-[200px]">
+            <div className="flex gap-[32px] ">
                 {statsData.map((stat, index) => (
                     <StatCard
                         key={stat.id}

@@ -34,7 +34,7 @@ const StatCard: React.FC<StatCardProps> = ({
         >
             {/* ACTIVE CARD CONTENT */}
             {isActive && (
-                <div className="flex flex-col justify-between h-full py-[40px] px-[38px]">
+                <div className="flex flex-col justify-between h-full pt-[40px] px-[38px]">
                     {/* Top row — images + view all */}
                     <div className="flex items-center justify-end">
                         <button className="text-white text-[18px] flex items-center font-outfit font-semibold gap-[8px] ">
@@ -49,15 +49,15 @@ const StatCard: React.FC<StatCardProps> = ({
                     </div>
 
                     {/* Bottom row — number + label + description */}
-                    <div className="flex gap-[3px] h-[148px] items-center">
-                        <div className="  h-[138px]">
-                            <span className="text-white text-[130px] font-bold font-nohemi">
+                    <div className="flex gap-[3px] h-[138px] items-start">
+                        <div className="  h-[138px] items-start py-0">
+                            <div className="text-white text-[130px] leading-none items-start  font-bold font-nohemi">
                                 {number}<sup className="text-[64px] align-super">+</sup>
-                            </span>
+                            </div>
 
                         </div>
                         <div className="flex flex-col gap-[12px]">
-                            <p className="text-white text-[30px] font-bold font-outfit font-semibold mt-1">{label}</p>
+                            <p className="text-white text-[30px] font-bold font-outfit">{label}</p>
                             <p className="text-white text-[12px] font-outfit text-[18px] ">
                                 {description}
                             </p>
@@ -67,23 +67,49 @@ const StatCard: React.FC<StatCardProps> = ({
             )}
 
             {/* INACTIVE CARD CONTENT — rotated vertical text */}
+            {/* ===================== ACTIVE CARD BOTTOM SECTION ===================== */}
+            {isActive && (
+                <div className="flex gap-[3px]  h-[148px] bg-red-300 pointer-events-none">
+                    
+
+                    {/* Label + Description */}
+                    <div className="flex flex-col  h-[148px] gap-[12px] justify-start">
+                        <p className="text-white text-[30px] font-bold font-outfit font-semibold ">
+                            {label}
+                        </p>
+                        <p className="text-white text-[18px] font-outfit">
+                            {description}
+                        </p>
+                    </div>
+                </div>
+            )}
+
+            {/* ===================== INACTIVE CARD BOTTOM SECTION ===================== */}
             {!isActive && (
-                <div className="flex flex-col items-center max-w-[280px] justify-between h-full py-[24px] px-[16px]">
-                    {/* Number */}
-                    <div className="flex items-start">
-                        <span className="text-[#C0182A] text-[36px] font-bold leading-none">
-                            {number}
-                        </span>
-                        <span className="text-[#C0182A] text-[18px] font-bold mt-1">+</span>
+                <div className="flex flex-col gap-[24px] h-full  pt-[40px] px-[16px] pointer-events-none">
+                    {/* Vertical label */}
+                    <div className="flex gap-[12px] justify-center items-center w-full h-[252px]">
+                        <p
+                            className="text-[#C0182A] text-[32px] font-bold font-outfit"
+                            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                        >
+                            {label}
+                        </p>
+                        <p
+                            className="text-[#C0182A] text-[18px]  font-outfit"
+                            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                        >
+                            exciting new courses waiting to boost your skills.
+                        </p>
                     </div>
 
-                    {/* Vertical label */}
-                    <p
-                        className="text-[#C0182A] text-[13px] font-semibold text-center"
-                        style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                    >
-                        {label}
-                    </p>
+                    {/* Number */}
+                    <div className=" flex items-center  justify-center h-[138px]">
+                        <div className="text-[#C33241] text-[130px] font-bold font-nohemi leading-none text-center">
+                            {number}
+                            <sup className="text-[64px] align-super">+</sup>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
