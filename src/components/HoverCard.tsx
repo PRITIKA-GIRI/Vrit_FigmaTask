@@ -54,15 +54,19 @@ const HoverCard: React.FC<HoverCardProps> = ({
 
     return (
         <div
-            className="relative group w-[592px] h-[341px] rounded-[30px] cursor-pointer"
+            className="relative group w-[592px] h-[341px] rounded-[30px] cursor-pointer overflow-visible"
             onMouseEnter={() => hasReveal && setRevealIndex(0)}
-            onMouseLeave={() => setRevealIndex(null)}
+            onMouseLeave={(e) => {
+                const related = e.relatedTarget as HTMLElement;
+                if (related && e.currentTarget.contains(related)) return;
+                setRevealIndex(null);
+            }}
         >
             {/* MAIN CARD */}
             <div
                 className={`
                     absolute inset-0 rounded-[30px] flex items-start
-                    transition-all duration-[1200ms] ease-in-out ${bgColor}
+                    transition-all  overflow-visible duration-[1200ms] ease-in-out ${bgColor}
                     ${hasReveal && isRevealed
                         ? "-translate-x-full opacity-0"
                         : "translate-x-0 opacity-100"}
@@ -100,42 +104,55 @@ const HoverCard: React.FC<HoverCardProps> = ({
             </div>
 
             {/* REVEAL CARDS */}
+            {/* REVEAL CARDS */}
             {hasReveal && revealComponents.map((RevealComponent, index) => (
                 <div
                     key={index}
                     className={`
-                        absolute inset-0
-                        transition-all duration-[1200ms] ease-in-out
-                        ${isRevealed && revealIndex === index
+            absolute inset-0
+            transition-all duration-[1200ms] ease-in-out
+            ${isRevealed && revealIndex === index
                             ? "opacity-100 translate-x-0"
                             : revealIndex !== null && index < revealIndex
                                 ? "opacity-0 -translate-x-full"
                                 : "opacity-0 translate-x-full"
                         }
-                    `}
+        `}
                 >
-                    <RevealComponent />
+                    {/* Card content — clipped to rounded shape */}
+                    <div className="absolute inset-0 rounded-[30px] overflow-hidden pointer-events-none">
+                        <RevealComponent />
+                    </div>
 
-                    {/* LEFT NAV BUTTON */}
-                    <button
-                        onClick={handlePrev}
-                        aria-label="Previous"
-                        className="absolute top-1/2 -translate-y-1/2 left-[-31px] w-[62px] h-[62px] bg-[#FAFAFA] rounded-full flex items-center justify-center z-20"
-                        style={{ boxShadow: "0 0 0 14px #FFFFFF" }}
-                    >
-                        <img src="/arrow-left.svg" alt="" width={24} height={24} />
-                    </button>
+                    {/* BUTTONS — only on active reveal, prevents stacking ✅ */}
+                    {isRevealed && revealIndex === index && (
+                        <>
+                            <button
+                                onClick={handlePrev}
+                                aria-label="Previous"
+                                className="absolute top-1/2 -translate-y-1/2 left-[-31px] w-[62px] h-[62px] bg-[#FAFAFA] rounded-full flex items-center justify-center z-20 pointer-events-auto"
+                                style={{ boxShadow: "0 0 0 14px #FFFFFF" }}
+                            >
+                                <img
+                                    src="/Icon.svg"
+                                    alt=""
+                                    width={24}
+                                    height={24}
+                                    style={{ transform: "rotate(180deg)" }}
+                                />
+                            </button>
 
-                    {/* RIGHT NAV BUTTON — only if more reveal cards exist */}
-                    {index < revealComponents.length - 1 && (
-                        <button
-                            onClick={handleNext}
-                            aria-label="Next"
-                            className="absolute top-1/2 -translate-y-1/2 right-[-31px] w-[62px] h-[62px] bg-[#FAFAFA] rounded-full flex items-center justify-center z-20"
-                            style={{ boxShadow: "0 0 0 14px #FFFFFF" }}
-                        >
-                            <img src="/Icon.svg" alt="" width={24} height={24} />
-                        </button>
+                            
+                                <button
+                                    onClick={handleNext}
+                                    aria-label="Next"
+                                    className="absolute top-1/2 -translate-y-1/2 right-[-31px] w-[62px] h-[62px] bg-[#FAFAFA] rounded-full flex items-center justify-center z-20 pointer-events-auto"
+                                    style={{ boxShadow: "0 0 0 14px #FFFFFF" }}
+                                >
+                                    <img src="/Icon.svg" alt="" width={24} height={24} />
+                                </button>
+                            
+                        </>
                     )}
                 </div>
             ))}

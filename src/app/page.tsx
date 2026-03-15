@@ -16,7 +16,7 @@ const Task1 = () => {
           <p></p>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-[32px] gap-y-[40px]">
+        <div className="grid grid-cols-2 gap-x-[32px] gap-y-[40px] over">
           {cards.map((card, i) => (
             <HoverCard key={i} {...card} />
           ))}

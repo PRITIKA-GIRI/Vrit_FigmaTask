@@ -2,41 +2,16 @@
 
 const RevealCard2 = () => {
     return (
-        <div className="relative rounded-[30px] bg-[#5492A0]  flex items-center pl-[80px] max-w-full md:max-w-[600px] h-[341px]">
-            <p className="absolute text-white text-[20px] font-medium text-left top-[38px] max-w-[241px]">
+        <div className="relative rounded-[30px] bg-[#5492A0] w-full h-full overflow-hidden">
+            <p className="absolute text-white text-[20px] font-medium left-[25px] top-[38px] max-w-[241px]">
                 Focused faces—learning mode: ON!
             </p>
 
-            <button
-                className="absolute top-1/2 left-[-31px] w-[62px] h-[62px] bg-[#FAFAFA] rounded-full shadow-lg flex items-center justify-center cursor-pointer z-10"
-
-                style={{
-                    transform: "translateY(-50%)",
-                    boxShadow: "0 0 0 14px #FFFFFF",
-
-                }}
-            >
-                <img src="arrow-left.svg" alt="icon" />
-            </button>
-
             <img
-                src={"1 3.svg"}
+                src="/1 3.svg"
                 alt="reveal"
-                className="absolute  items-baseline w-[572px] h-[303px] left-[40px] top-[38px] rounded-lg"
+                className="absolute w-[572px] h-[303px] left-[40px] top-[38px] rounded-lg"
             />
-
-            <button
-                className="absolute top-1/2 right-[-31px] w-[62px] h-[62px] bg-[#FAFAFA] rounded-full shadow-lg flex items-center justify-center cursor-pointer z-10"
-                style={{
-                    transform: "translateY(-50%)",
-                    boxShadow: "0 0 0 14px #FFFFFF",
-
-                }}
-            >
-                <img src="Icon.svg" alt="icon" />
-            </button>
-
-
         </div>
     );
 };

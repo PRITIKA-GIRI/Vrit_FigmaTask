@@ -1,5 +1,6 @@
 import RevealCard2 from "@/components/RevealCard";
 import RevealCard1 from "@/components/RevealCard1";
+import RevealCard3 from "@/components/RevealCard3";
 
 
 export const cards = [
@@ -23,7 +24,7 @@ export const cards = [
         imageSrc: "Group (1).svg",
         text: "Theory is great, but action is better. At SkillShikshya, you learn by doing. Hands-on projects and real-world scenarios help you build, break, and create—leading to true mastery.",
         hasReveal: true,
-        revealComponents: [RevealCard2],
+        revealComponents: [RevealCard2, RevealCard3],
         imagePosition: { top: "15px", left: "350px", },
         textLeft: "35px",
     },
