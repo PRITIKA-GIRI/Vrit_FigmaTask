@@ -1,5 +1,6 @@
 import HoverCard from "@/components/HoverCard";
 import { cards } from "@/constants/cardData";
+import Link from "next/link";
 
 
 const Task1 = () => {
@@ -20,6 +21,15 @@ const Task1 = () => {
             <HoverCard key={i} {...card} />
           ))}
         </div>
+      </div>
+
+      <div className=" mt-20">
+        <Link
+          href="/task2"
+          className="px-[24px] py-[12px] bg-[#C33241] text-white font-outfit font-semibold text-[16px] rounded-[12px] hover:bg-[#d84654] transition-colors duration-200"
+        >
+          View Task 2
+        </Link>
       </div>
 
     </div>
